@@ -24,7 +24,24 @@
         cost: 0.85,
         costTax: 0
     }
+
 ]
+
+    var importItems = [
+        {
+            item: "Imported box of chocolates",
+            amount: 1,
+            cost: 10.00,
+            costTax: .50
+        },
+        {
+            item: "Important bottle of perfume",
+            amount: 1,
+            cost: 47.50,
+            costTax: 7.13
+        }
+    ]
+
 
     function adddingSalesTax(items) {
         for (var x = 0; x <items.length; x++) {
@@ -35,19 +52,27 @@
 
         }
 
-        var totalTax = (parseFloat(itemsPurchased[0].costTax) + (itemsPurchased[1].costTax) + (itemsPurchased[2].costTax))
+        var totalTax = (parseFloat(items[0].costTax) + (items[1].costTax) + (items[2].costTax))
 
-        var totalCost = (parseFloat(itemsPurchased[0].cost) + (itemsPurchased[1].cost) + (itemsPurchased[2].cost))
+        var totalCost = (parseFloat(items[0].cost) + (items[1].cost) + (items[2].cost))
+
+        var importTax = (parseFloat(items[0].costTax) + (items[1].costTax))
+
+        var importCost = (parseFloat(items[0].cost) + (items[1].cost))
 
 
         console.log("Sales Taxes: " + totalTax.toFixed(2))
         console.log("Total: " + (totalTax + totalCost).toFixed(2))
+
+        console.log("Sales Taxes: " + importTax.toFixed(2))
+        console.log("Total: " + (importTax + totalCost).toFixed(2))
 
     }
 
     adddingSalesTax(itemsPurchased)
 
 
+adddingSalesTax(importItems)
 
 
 
